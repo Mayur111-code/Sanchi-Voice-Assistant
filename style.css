@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Road+Rage&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{margin: 0;
+ padding: 0;
+box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-direction: column;
+}
+#logo{
+    width: 20vw;
+}
+h1{
+    color: white;
+    font-family: "Road Rage", serif;
+}
+#name{
+    color: rgb(222, 24, 106);
+    font-size: 45px;
+}
+#va{
+    color: rgb(9, 32, 240);
+    font-size: 45px;
+}
+#voice{
+    width: 150px;
+    display: none;
+}
+#btn{
+width: 20%;
+background: linear-gradient(to right,rgb(3, 103, 244),rgb(255, 0, 123));
+padding: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+font-size: 15px;
+border-radius: 25px;
+color: white;
+box-shadow: 2px 2px 10px rgb(3, 103, 244),2px 2px 10px rgb(255, 0, 123);
+border: none;
+transition: all 0.5s;
+cursor: pointer;
+}
+#btn:hover{
+    box-shadow: 2px 2px 20px rgb(3, 103, 244),2px 2px 20px rgb(255, 0, 123);
+    letter-spacing: 2px;
+}
