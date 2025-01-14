@@ -85,7 +85,7 @@ function takeCommand(message) {
        speak("Microsoft is the name of the technology company founded by Bill Gates and Paul Allen. The name is a combination of microcomputer and software.")
     
     
-    } else if (message.includes("add") || message.includes("+")){
+    } else if (message.includes("add") || message.includes("and")){
         let numbers = message.match(/\d+/g);
         
         if (numbers && numbers.length > 1) {
@@ -95,7 +95,7 @@ function takeCommand(message) {
             speak("Please provide at least two numbers for addition.", "en-US");
             }
         //subtract
-        } else if (message.includes("subtract") || message.includes("घट")) {
+        } else if (message.includes("subtract") || message.includes("-")) {
         let numbers = message.match(/\d+/g);
         if (numbers && numbers.length > 1) {
             let result = numbers.reduce((acc, num) => acc - parseInt(num));
@@ -104,7 +104,7 @@ function takeCommand(message) {
             speak("Please provide at least two numbers for subtraction.", "en-US");
         }
         //multiply
-        } else if (message.includes("multiply") || message.includes("गुणाकार")) {
+        } else if (message.includes("multiply") || message.includes("into")) {
         let numbers = message.match(/\d+/g);
         if (numbers && numbers.length > 1) {
             let result = numbers.reduce((acc, num) => acc * parseInt(num));
@@ -113,7 +113,7 @@ function takeCommand(message) {
             speak("Please provide at least two numbers for multiplication.", "en-US");
         }
         //divide
-        } else if (message.includes("divide") || message.includes("भाग")) {
+        } else if (message.includes("divide") || message.includes("by")) {
         let numbers = message.match(/\d+/g);
         if (numbers && numbers.length > 1) {
             let result = numbers.reduce((acc, num) => acc / parseInt(num));
