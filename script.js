@@ -65,10 +65,16 @@ function takeCommand(message) {
 
     if (message.includes("hello") || message.includes("hey")) {
         speak("Hello Sir, what can I help you with?");
+    } else if (message.includes("namaskar")){
+       speak("नमस्कार! मी तुमची सहाय्यक आहे, सांगा, कशी मदत करू?");
     } else if (message.includes("what is my name") || message.includes("my name")){
         speak("your name is mayur");
     } else if (message.includes("who are you") || message.includes("hu r u")){
         speak("I am sanchi Your voice assistant, created by Mayur Sir.");
+    } else if (message.includes("give me your number")){
+        speak("I don't have a phone number, as I'm an voice assistant created to assist with information and tasks online. But feel free to reach out anytime here, and I'll be happy to help you!")
+    }  else if (message.includes("what is data science")){
+        speak("Data Science is an interdisciplinary field that uses scientific methods, algorithms, processes, and systems to extract insights and knowledge from structured and unstructured data. It combines elements of statistics, computer science, mathematics, and domain expertise to analyze and interpret complex data.")
     } else if (message.includes("what is open ai")){
         speak("OpenAI is an artificial intelligence research organization and technology company. It was founded in December 2015 by a group of prominent entrepreneurs and researchers, including Elon Musk, Sam Altman, Greg Brockman, Ilya Sutskever, Wojciech Zaremba, and others. The mission of OpenAI is to ensure that artificial general intelligence (AGI) benefits all of humanity. Here's an overview of OpenAI:")
     } else if (message.includes("what is gemini")){
@@ -76,9 +82,61 @@ function takeCommand(message) {
     } else if (message.includes("what is siri")){
         speak("Siri is a virtual assistant created by Apple, designed to interact with users through voice commands and perform a variety of tasks. It uses artificial intelligence and natural language processing to understand and respond to user queries.")
     } else if (message.includes("microsoft means")){
-        speak("Microsoft is the name of the technology company founded by Bill Gates and Paul Allen. The name is a combination of microcomputer and software.")
-    }
-     else if  (message.includes("speak hindi")) {
+       speak("Microsoft is the name of the technology company founded by Bill Gates and Paul Allen. The name is a combination of microcomputer and software.")
+    
+    
+    } else if (message.includes("add") || message.includes("+")){
+        let numbers = message.match(/\d+/g);
+        
+        if (numbers && numbers.length > 1) {
+            let sum = numbers.reduce((acc, num) => acc + parseInt(num), 0);
+            speak(`The sum of the numbers is ${sum}`, "en-US");
+        } else {
+            speak("Please provide at least two numbers for addition.", "en-US");
+            }
+        //subtract
+        } else if (message.includes("subtract") || message.includes("घट")) {
+        let numbers = message.match(/\d+/g);
+        if (numbers && numbers.length > 1) {
+            let result = numbers.reduce((acc, num) => acc - parseInt(num));
+            speak(`The result of subtraction is ${result}`, "en-US");
+        } else {
+            speak("Please provide at least two numbers for subtraction.", "en-US");
+        }
+        //multiply
+        } else if (message.includes("multiply") || message.includes("गुणाकार")) {
+        let numbers = message.match(/\d+/g);
+        if (numbers && numbers.length > 1) {
+            let result = numbers.reduce((acc, num) => acc * parseInt(num));
+            speak(`The result of multiplication is ${result}`, "en-US");
+        } else {
+            speak("Please provide at least two numbers for multiplication.", "en-US");
+        }
+        //divide
+        } else if (message.includes("divide") || message.includes("भाग")) {
+        let numbers = message.match(/\d+/g);
+        if (numbers && numbers.length > 1) {
+            let result = numbers.reduce((acc, num) => acc / parseInt(num));
+            speak(`The result of division is ${result.toFixed(2)}`, "en-US");
+        } else 
+            speak("Please provide at least two numbers for division.", "en-US");
+    } else if (message.includes("mi kay vicharu")){
+        speak("तुम्हाला काही विचारायचं आहे का?  काही माहिती हवी आहे का?");
+    } else if (message.includes("tum hi kuthe raha tha ") || message.includes ("tum bhi kuthe raha tha")){
+        speak("मी डिजिटल आहे, मला शारीरिक अस्तित्व नाही.");
+    } else if (message.includes("1 2 3") || message.includes("ek do teen")){
+        speak("चार पाच सहा सात आठ नऊ दहा!");
+    } else if (message.includes("tu kashi aahe")) { 
+        speak("मी ठिक आहे, तुम्ही कसे आहात?");
+    }else if (message.includes("can you speak marathi")){
+        speak("हो, मी मराठीत बोलू शकते. तुम्हाला मराठीत काही विचारायचं आहे का?")
+    } else if (message.includes("tumse nav kay aahe")){
+        speak("माझं नाव सांची आहे. मी Mayur यांच्याकडून तयार करण्यात आलेली सहाय्यक आहे.");
+    } else if (message.includes("tujhe nav kay aahe")){
+        speak("माझं नाव sanchi आहे. मी तुमची voice assistant आहे ")
+    } else if (message.includes("tula koni develop kel aahe ")){
+        speak("मला Mayur-code नावाच्या संस्थेने विकसित केलं आहे. ही संस्था voice assistant (AI) उत्तर देण्यासाठी तयार आहे! ")
+    } else if  (message.includes("speak hindi")) {
         speak("नमस्ते, मैं आपकी मदद करने के लिए यहाँ हूँ।", "hi-IN");
     } else if (message.includes("tum meri madad karogi")){
         speak("Bilkul, main aapki madad karungi! Aapko kis cheez mein madad chahiye?")
@@ -86,8 +144,7 @@ function takeCommand(message) {
         speak("Mujhe Mayur sir ne banaya hai. Main ek voice assistant Ai model hoon, jise human-like conversations karne ke liye train kiya gaya hai. Mera purpose hai aapki madad karna, chahe woh coding ho, knowledge-related questions, ya kuch aur!")
     } else if (message.includes(" thak gaya hu")){
         speak("Agar aap thak gaye ho, toh thoda break lena accha rahega. Aap apne dimaag ko relax karne ke liye kuch aise cheezein kar sakte hain: like.....Thodi der ke liye rest lein — Aap ek chhoti si nap le sakte hain ya bas chill kar sakte hain......Deep breathing — Gahri saans lein aur apne aapko relax karein.....Kuch halke music sunen — Aap apne favorite relaxing music sun sakte hain......Thoda walk karein — Agar aap ghar ke andar hain, toh ek chhota sa walk lene se bhi energy mil sakti hai.")
-    }
-    else if (message.includes("hindi mein bolo")) {
+    } else if (message.includes("hindi mein bolo")) {
         speak("Namaste, main Sanchi hoon. Aapki kya madad kar sakti hoon?");
     } else if (message.includes("open youtube")) {
         speak("Opening YouTube...");
@@ -123,10 +180,7 @@ function takeCommand(message) {
     } else if (message.includes("spotify music")) {
         speak("Playing your favorite music.");
         window.open("https://open.spotify.com/", "_blank");
-    } 
-    
-    
-     else if (message.includes("motivate me") || message.includes("quote")) {
+    }  else if (message.includes("motivate me") || message.includes("quote")) {
         let quotes = [
             "Believe in yourself! You are capable of amazing things.",
             "The best time to plant a tree was 20 years ago. The second best time is now.",
@@ -139,11 +193,10 @@ function takeCommand(message) {
     } else if (message.includes("play movie")){
         speak("playing movie...");
         window.open("https://www.netflix.com", "_blank")
-    }
-     else if (message.includes("open instagram")) {
+    } else if (message.includes("open instagram")) {
         speak("Opening Instagram...");
         window.open("https://instagram.com/", "_blank");
-    } else if (message.includes("time")) {
+    } else if (message.includes("time") || message.includes("kitty ve jhala aahe") || message.includes("kitty wear jhala aahe")) {
         let time = new Date().toLocaleString(undefined, { hour: "numeric", minute: "numeric" });
         speak(`The time is ${time}`);
     } else if (message.includes("date")) {
@@ -161,3 +214,4 @@ function takeCommand(message) {
 
 
 
+        
